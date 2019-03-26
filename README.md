@@ -1,15 +1,14 @@
 # 快速体验EOS入门合约
-
-本教程主要面向初始用户，带领大家以最简单的示例合约，通过简单但不失完整的流程，体验整个合约的编译、发布与调用过程，从而让大家从直观角度有个清晰的概念认识。
+本教程主要面向初阶开发人员，目的在于带领大家以最简单的示例合约，通过简单但不失完整的流程，体验整个合约的编译、发布与调用过程，从而让大家从直观角度有个清晰的概念认识。
 
 ---- 
 
-## 帐户注册
-### 生成公私钥地址
+## 一、帐户注册
+### 1. 生成公私钥地址
 在进行帐户注册时，需要事先提供一对公私钥地址，以便在注册帐号时进行绑定使用。可通过[EOS Key Generation](https://nadejde.github.io/eos-token-sale/)网站进行公私钥地址生成。
 ![](http://cdn.hackdapp.com/2019-03-26-061513.png)
 ![](http://cdn.hackdapp.com/2019-03-26-061448.png)
-### 帐号注册
+### 2. 帐号注册
 通过[Jungle2.0 - EOS Test Network Monitor (CryptoLions.io)](http://monitor.jungletestnet.io/#home)网站进行EOS帐户的创建
 ![](http://cdn.hackdapp.com/2019-03-26-061701.jpg)
 点击图中标红**create account**, 在弹出界面中，填写事先生成的公钥地址
@@ -21,18 +20,18 @@
 点击**create**, 创建成功后，会显示如下信息
 ![](http://cdn.hackdapp.com/2019-03-26-063306.jpg)
 
-## 申领EOS
+## 二、申领EOS
 ![](http://cdn.hackdapp.com/2019-03-26-063552.jpg)
 在[Jungle2.0 - EOS Test Network Monitor (CryptoLions.io)](http://monitor.jungletestnet.io/#home)页面，点击菜单栏中的**Faucet**按钮，会弹出如下界面
 ![](http://cdn.hackdapp.com/2019-03-26-063708.jpg)
 
-## 查看帐户明细(余额 / RAM / CPU / NET资源)
+## 三、查看帐户明细(余额 / RAM / CPU / NET资源)
 ![](2019-03-26%20at%2014.37.jpg)
 在[Jungle2.0 - EOS Test Network Monitor (CryptoLions.io)](http://monitor.jungletestnet.io/#home)页面，点击菜单栏中的**account info**按钮，弹出如下界面：
 ![](http://cdn.hackdapp.com/2019-03-26-064031.jpg)
 填写帐号名称后，点击**get**按钮, 便可以查到该用户的EOS余额及公钥地址信息。
 
-## 编译合约
+## 四、编译合约
 本步骤将使用EOS所提供的cdt开发工具包完成对简单示例合约的编译工作。
 
 1）在本地安装eosio-cpp工具命令
@@ -87,8 +86,8 @@ eosio-cpp -abigen 'contracts/hello.cpp' -o 'contracts/hello.wasm' --contract 'ha
 
 编译完成后，会生成hello.abi、hello.wasm两个文件。
 
-## 购买RAM、CPU、NET资源
-### 安装scatter
+## 五、购买RAM、CPU、NET资源
+### 1. 安装scatter
 在chrome浏览器中安装[Chrome 网上应用店 - scatter](https://chrome.google.com/webstore/detail/scatter/ammjpmhgckkpcamddpolhchgomcojkle?hl=zh-CN)插件
 
 导入私钥地址
@@ -96,17 +95,17 @@ eosio-cpp -abigen 'contracts/hello.cpp' -o 'contracts/hello.wasm' --contract 'ha
 
 针对测试网绑定身份
 ![](2019-03-26%20at%2016.36.jpg) ![](http://cdn.hackdapp.com/2019-03-26-083734.jpg) ![](http://cdn.hackdapp.com/2019-03-26-084004.jpg)
-### 绑定scatter帐号
+### 2. 绑定scatter帐号
 访问[内存交易 - 钱包 - EOSX - Fastest EOS Block Explorer](https://jungle.eosx.io/tools/ram/buy?symbol=10)网站，绑定scatter帐号
 ![](2019-03-26%20at%2016.44.jpg)![](2019-03-26%20at%2016.23.jpg) ![](http://cdn.hackdapp.com/2019-03-26-085148.jpg)
 
-### 购买资源
+### 3. 购买资源
 **购买RAM**
 ![](http://cdn.hackdapp.com/2019-03-26-085239.jpg)
 **购买CPU与NET资源**
 ![](http://cdn.hackdapp.com/2019-03-26-085429.jpg)
 
-## 发布合约
+## 六、发布合约
 如果你没有事先购买RAM资源，可以会提示以下错误信息
 ```bash
 {
@@ -196,8 +195,8 @@ npm run deploy
 
 显示**Deployment successful**, 则表示发布合约成功。
 
-## 测试合约及合约方法调用
-编写测试文件index.js
+## 七、测试合约及合约方法调用
+### 编写测试文件index.js
 ```bash
 const eos = require('./utils/eossdk')({
   chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473",
@@ -237,7 +236,6 @@ node index.js
 "Hello, 111"
 
 ```
-
 ---- 
 通过本章的学习以及自我动手实践，了解在测试网上如何进行私钥生成以及帐号注册，学会如何使用eosio-cpp命令编译示例合约以及通过脚本进行合约的发布及测试的完整操作流程。
 
@@ -252,7 +250,6 @@ node index.js
 | hackdappcom5	| EOS6NcaFvvoekuBjhZLsBVywiMcN7VTVmgvAdA5srgTvQMeDmdiAH				| 5JjN9efKokkgZYno2qjbE9C7WCGbVpPvgNArKDvcjbDic2pRGCS				|
 
 ### 参考资料
-
 1. [https://nadejde.github.io/eos-token-sale/](https://nadejde.github.io/eos-token-sale/)
 2. [http://monitor.jungletestnet.io/#home](http://monitor.jungletestnet.io/#home)
 3. [https://jungle.eosx.io/tools/ram/buy?symbol=10](https://jungle.eosx.io/tools/ram/buy?symbol=10)
