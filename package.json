@@ -1,0 +1,24 @@
+{
+  "name": "learn_eos",
+  "version": "1.0.0",
+  "description": "快速体验EOS入门合约",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "eosio-cpp -abigen 'contracts/hello.cpp' -o 'contracts/hello.wasm' --contract 'hackdappcom1'",
+    "deploy": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackdapp/learn_eos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackdapp/learn_eos/issues"
+  },
+  "homepage": "https://github.com/hackdapp/learn_eos#readme",
+  "dependencies": {
+    "eosjs": "^16.0.9"
+  }
+}
