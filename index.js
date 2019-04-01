@@ -6,11 +6,22 @@ const eos = require('./utils/eossdk')({
   broadcast: true,
   sign: true
 })
-const {deployContract} = require('./utils/deploy')
 
-deployContract(eos, { account: "hackdappcom1", contractDir: "./contracts" }).then((result) => {
-    console.log(`Deployment successful`, JSON.stringify(result, null , 4))
-})
-.catch(err => {
-    console.error(`Deployment failed`, err)
-})
+const data = {
+	actions: [
+		{
+      account: 'hackdappcom1',
+      name: 'hi',
+      authorization: [{
+          actor: 'hackdappcom1',
+          permission: 'active'
+      }],
+      data: {"user": "111"}
+		}
+	]
+}
+eos.transaction(data).then((result)=>{
+    console.log(JSON.stringify(result.processed.action_traces[0].console, null, 4))
+  }).catch((err)=>{
+    console.log(err)
+  })
